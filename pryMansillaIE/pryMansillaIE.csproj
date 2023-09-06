@@ -64,6 +64,18 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProveedoresActivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedoresActivos.Designer.cs">
+      <DependentUpon>frmProveedoresActivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistroProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroProveedores.Designer.cs">
+      <DependentUpon>frmRegistroProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmInicioSesion.resx">
@@ -74,6 +86,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedoresActivos.resx">
+      <DependentUpon>frmProveedoresActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroProveedores.resx">
+      <DependentUpon>frmRegistroProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

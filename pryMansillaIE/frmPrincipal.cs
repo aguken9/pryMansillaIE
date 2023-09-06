@@ -19,7 +19,8 @@ namespace pryMansillaIE
 
         private void listadoDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            frmRegistroProveedores formulario = new frmRegistroProveedores();
+            formulario.Show();
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -29,7 +30,8 @@ namespace pryMansillaIE
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-          
+            hora.Text = DateTime.Now.ToLongTimeString();
+            fecha.Text = DateTime.Now.ToLongDateString();
         }
 
         private void toolStripStatusLabel1_Click_1(object sender, EventArgs e)
@@ -39,13 +41,19 @@ namespace pryMansillaIE
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            fecha.Text = DateTime.Now.ToLongDateString();
+            timer1.Enabled = true;
            
         }
 
         private void hora_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void activosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProveedoresActivos formulario = new frmProveedoresActivos();
+            formulario.Show();
         }
     }
 }

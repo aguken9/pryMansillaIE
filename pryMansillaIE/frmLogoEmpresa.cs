@@ -30,8 +30,8 @@ namespace pryMansillaIE
             if (contadorTiempo > 3000)
             {
                 this.Hide();
-                frmPrincipal formularioPrincial = new frmPrincipal();
-                formularioPrincial.Show();
+                frmInicioSesion formularioInicioSesion = new frmInicioSesion();
+                formularioInicioSesion.Show();
                 temporizador.Enabled = false;
             }
         }
