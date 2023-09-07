@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace pryMansillaIE
 {
@@ -21,6 +22,9 @@ namespace pryMansillaIE
         {
             frmRegistroProveedores formulario = new frmRegistroProveedores();
             formulario.Show();
+            StreamWriter sw = new StreamWriter("logGeneral", true);
+            sw.WriteLine("- Fecha: " + DateTime.Now + "- Ingreso a: " + GesProvRegistro.Text);
+            sw.Close();
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -42,7 +46,6 @@ namespace pryMansillaIE
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-           
         }
 
         private void hora_Click(object sender, EventArgs e)
@@ -52,8 +55,17 @@ namespace pryMansillaIE
 
         private void activosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // registro logs falta agregar el usuario
             frmProveedoresActivos formulario = new frmProveedoresActivos();
             formulario.Show();
+            StreamWriter sw = new StreamWriter("logGeneral", true);
+            sw.WriteLine( "- Fecha: " + DateTime.Now + "- Ingreso a: " + ListProvActivos.Text);
+            sw.Close();
+        }
+
+        private void toolStripStatusLabel4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,6 +18,8 @@ namespace pryMansillaIE
             InitializeComponent();
         }
 
+        public string UserName { get; private set; }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -27,6 +29,8 @@ namespace pryMansillaIE
         {
 
         }
+        
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -35,38 +39,41 @@ namespace pryMansillaIE
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            // Obtener los valores ingresados por el usuario
-            string usuario = txtUsuario.Text;
-            string contraseña = txtContraseña.Text;
 
-            // Validar el inicio de sesión (aquí puedes usar tus propios criterios)
-            if (usuario == "usuario" && contraseña == "contraseña")
-            {
-                // Inicio de sesión exitoso, generar el informe
-                GenerarInforme(usuario);
-                MessageBox.Show("Inicio de sesión exitoso.");
-            }
-            else
+            StreamWriter sw = new StreamWriter("logInicio", true);
+            sw.WriteLine(txtUsuario.Text+ "- Fecha: " + DateTime.Now);
+            sw.Close();
+
+            UserName = txtUsuario.Text; // Asigna el nombre de usuario
+            this.Hide(); // Oculta el formulario de inicio de sesión
+            frmPrincipal menuForm = new frmPrincipal();
+            menuForm.Show(); // Muestra el formulario de menú
+
+
+
+
+            //  string usuario = txtUsuario.Text;
+            // string contraseña = txtContraseña.Text;
+            // if (usuario == "" && contraseña == "")
+            // {
+            //   GenerarInforme(usuario);
+            // MessageBox.Show("Inicio de sesión exitoso.");
+            // }
+            //else
             {
                 // Inicio de sesión fallido, mostrar un mensaje de error
-                MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
+              //  MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
             }
         }
 
         private void GenerarInforme(string usuario)
         {
-            // Crear un nombre de archivo único basado en el usuario
             string registroUsuarios = $"{usuario}_Informe.txt";
-
-            // Crear o abrir un archivo de texto para escribir el informe
             using (StreamWriter writer = File.CreateText(registroUsuarios))
             {
-                // Escribir los datos del usuario en el informe
                 writer.WriteLine($"Usuario: {usuario}");
                 writer.WriteLine($"Fecha y hora del inicio de sesión: {DateTime.Now}");
             }
-
-            // Mostrar un mensaje de éxito
             MessageBox.Show("Informe generado con éxito.", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
