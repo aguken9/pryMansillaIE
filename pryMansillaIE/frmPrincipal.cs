@@ -13,9 +13,13 @@ namespace pryMansillaIE
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+        private Usuario usuario;
+        public frmPrincipal(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
+            user.Text = usuario.Nombre;
+
         }
 
         private void listadoDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -23,7 +27,7 @@ namespace pryMansillaIE
             frmRegistroProveedores formulario = new frmRegistroProveedores();
             formulario.Show();
             StreamWriter sw = new StreamWriter("logGeneral", true);
-            sw.WriteLine("- Fecha: " + DateTime.Now + "- Ingreso a: " + GesProvRegistro.Text);
+            sw.WriteLine(user.Text + "- Fecha: " + DateTime.Now + "- Ingreso a: " + GesProvRegistro.Text);
             sw.Close();
         }
 
@@ -59,7 +63,7 @@ namespace pryMansillaIE
             frmProveedoresActivos formulario = new frmProveedoresActivos();
             formulario.Show();
             StreamWriter sw = new StreamWriter("logGeneral", true);
-            sw.WriteLine( "- Fecha: " + DateTime.Now + "- Ingreso a: " + ListProvActivos.Text);
+            sw.WriteLine(user.Text + "- Fecha: " + DateTime.Now + "- Ingreso a: " + ListProvActivos.Text);
             sw.Close();
         }
 

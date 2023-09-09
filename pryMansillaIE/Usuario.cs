@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace pryMansillaIE
 {
-    internal class Usuario
+     public class Usuario
     {
+        public string Nombre { get; set; }
     }
 }

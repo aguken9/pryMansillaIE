@@ -48,6 +48,7 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(79, 171);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(237, 20);
             this.txtContraseña.TabIndex = 1;
             // 
@@ -103,7 +104,7 @@
             this.Controls.Add(this.txtUsuario);
             this.Name = "frmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmInicioSesion";
+            this.Text = "Iniciar Sesión";
             this.Load += new System.EventHandler(this.frmInicioSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

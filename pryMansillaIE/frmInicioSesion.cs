@@ -43,11 +43,16 @@ namespace pryMansillaIE
             StreamWriter sw = new StreamWriter("logInicio", true);
             sw.WriteLine(txtUsuario.Text+ "- Fecha: " + DateTime.Now);
             sw.Close();
+            Usuario usuario = new Usuario();
+            usuario.Nombre = txtUsuario.Text;
+            frmPrincipal principalForm = new frmPrincipal(usuario);
+            principalForm.Show();
+            this.Hide();
 
-            UserName = txtUsuario.Text; // Asigna el nombre de usuario
-            this.Hide(); // Oculta el formulario de inicio de sesión
-            frmPrincipal menuForm = new frmPrincipal();
-            menuForm.Show(); // Muestra el formulario de menú
+            //UserName = txtUsuario.Text; // Asigna el nombre de usuario
+            //this.Hide(); // Oculta el formulario de inicio de sesión
+            //frmPrincipal menuForm = new frmPrincipal();
+            //menuForm.Show(); // Muestra el formulario de menú
 
 
 
