@@ -38,7 +38,7 @@ namespace pryMansillaIE
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmProveedoresActivos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmProveedoresActivos";
+            this.Text = "Proveedores Activos";
             this.ResumeLayout(false);
 
         }

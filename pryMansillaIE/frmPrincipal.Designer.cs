@@ -42,8 +42,8 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.fecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.hora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.user = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +72,7 @@
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GesProvRegistro});
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
-            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
             // 
             // GesProvRegistro
@@ -95,13 +95,13 @@
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ListProvActivos});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
             // ListProvActivos
             // 
             this.ListProvActivos.Name = "ListProvActivos";
-            this.ListProvActivos.Size = new System.Drawing.Size(180, 22);
+            this.ListProvActivos.Size = new System.Drawing.Size(113, 22);
             this.ListProvActivos.Text = "Activos";
             this.ListProvActivos.Click += new System.EventHandler(this.activosToolStripMenuItem_Click);
             // 
@@ -152,16 +152,16 @@
             this.hora.Size = new System.Drawing.Size(31, 17);
             this.hora.Text = "hora";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // user
             // 
             this.user.Name = "user";
             this.user.Size = new System.Drawing.Size(46, 17);
             this.user.Text = "usuario";
             this.user.Click += new System.EventHandler(this.toolStripStatusLabel4_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmPrincipal
             // 
@@ -174,6 +174,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gestión de Ventas de Seguro";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

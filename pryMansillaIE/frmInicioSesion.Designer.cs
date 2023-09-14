@@ -30,9 +30,9 @@
         {
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblBroker = new System.Windows.Forms.Label();
+            this.lblContra = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,34 +52,34 @@
             this.txtContraseña.Size = new System.Drawing.Size(237, 20);
             this.txtContraseña.TabIndex = 1;
             // 
-            // label1
+            // lblBroker
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(123, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Iniciar Sesión";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblBroker.AutoSize = true;
+            this.lblBroker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBroker.Location = new System.Drawing.Point(106, 63);
+            this.lblBroker.Name = "lblBroker";
+            this.lblBroker.Size = new System.Drawing.Size(161, 25);
+            this.lblBroker.TabIndex = 2;
+            this.lblBroker.Text = "Broker Seguros";
+            this.lblBroker.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // lblContra
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 174);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña:";
+            this.lblContra.AutoSize = true;
+            this.lblContra.Location = new System.Drawing.Point(12, 174);
+            this.lblContra.Name = "lblContra";
+            this.lblContra.Size = new System.Drawing.Size(64, 13);
+            this.lblContra.TabIndex = 3;
+            this.lblContra.Text = "Contraseña:";
             // 
-            // label3
+            // lblUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Usuario:";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(12, 135);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Usuario:";
             // 
             // btnIngresar
             // 
@@ -93,13 +93,14 @@
             // 
             // frmInicioSesion
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 272);
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblContra);
+            this.Controls.Add(this.lblBroker);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Name = "frmInicioSesion";
@@ -115,9 +116,9 @@
 
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblBroker;
+        private System.Windows.Forms.Label lblContra;
+        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnIngresar;
     }
 }

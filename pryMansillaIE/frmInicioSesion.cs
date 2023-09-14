@@ -70,16 +70,5 @@ namespace pryMansillaIE
               //  MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
             }
         }
-
-        private void GenerarInforme(string usuario)
-        {
-            string registroUsuarios = $"{usuario}_Informe.txt";
-            using (StreamWriter writer = File.CreateText(registroUsuarios))
-            {
-                writer.WriteLine($"Usuario: {usuario}");
-                writer.WriteLine($"Fecha y hora del inicio de sesión: {DateTime.Now}");
-            }
-            MessageBox.Show("Informe generado con éxito.", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
     }
 }
