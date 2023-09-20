@@ -34,6 +34,9 @@ namespace pryMansillaIE
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grbCuadro = new System.Windows.Forms.GroupBox();
+            this.cmbJuzgado = new System.Windows.Forms.ComboBox();
+            this.cmbLiquidador = new System.Windows.Forms.ComboBox();
+            this.mskExpediente = new System.Windows.Forms.MaskedTextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtApertura = new System.Windows.Forms.TextBox();
             this.txtEntidad = new System.Windows.Forms.TextBox();
@@ -45,10 +48,9 @@ namespace pryMansillaIE
             this.lblApertura = new System.Windows.Forms.Label();
             this.lblEntidad = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
-            this.mskExpediente = new System.Windows.Forms.MaskedTextBox();
-            this.cmbLiquidador = new System.Windows.Forms.ComboBox();
-            this.cmbJurisdiccion = new System.Windows.Forms.ComboBox();
             this.grillaProveedores = new System.Windows.Forms.DataGridView();
+            this.lblJurisdiccion = new System.Windows.Forms.Label();
+            this.cmbJurisdiccion = new System.Windows.Forms.ComboBox();
             this.grbCuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaProveedores)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +94,8 @@ namespace pryMansillaIE
             // grbCuadro
             // 
             this.grbCuadro.Controls.Add(this.cmbJurisdiccion);
+            this.grbCuadro.Controls.Add(this.lblJurisdiccion);
+            this.grbCuadro.Controls.Add(this.cmbJuzgado);
             this.grbCuadro.Controls.Add(this.cmbLiquidador);
             this.grbCuadro.Controls.Add(this.mskExpediente);
             this.grbCuadro.Controls.Add(this.txtDireccion);
@@ -112,9 +116,33 @@ namespace pryMansillaIE
             this.grbCuadro.TabStop = false;
             this.grbCuadro.Text = "Datos";
             // 
+            // cmbJuzgado
+            // 
+            this.cmbJuzgado.FormattingEnabled = true;
+            this.cmbJuzgado.Location = new System.Drawing.Point(205, 199);
+            this.cmbJuzgado.Name = "cmbJuzgado";
+            this.cmbJuzgado.Size = new System.Drawing.Size(121, 21);
+            this.cmbJuzgado.TabIndex = 29;
+            this.cmbJuzgado.SelectedIndexChanged += new System.EventHandler(this.cmbJuzgado_SelectedIndexChanged);
+            // 
+            // cmbLiquidador
+            // 
+            this.cmbLiquidador.FormattingEnabled = true;
+            this.cmbLiquidador.Location = new System.Drawing.Point(205, 283);
+            this.cmbLiquidador.Name = "cmbLiquidador";
+            this.cmbLiquidador.Size = new System.Drawing.Size(121, 21);
+            this.cmbLiquidador.TabIndex = 28;
+            // 
+            // mskExpediente
+            // 
+            this.mskExpediente.Location = new System.Drawing.Point(205, 166);
+            this.mskExpediente.Name = "mskExpediente";
+            this.mskExpediente.Size = new System.Drawing.Size(121, 20);
+            this.mskExpediente.TabIndex = 19;
+            // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(205, 223);
+            this.txtDireccion.Location = new System.Drawing.Point(205, 248);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(121, 20);
             this.txtDireccion.TabIndex = 26;
@@ -143,7 +171,7 @@ namespace pryMansillaIE
             // lblLiquidador
             // 
             this.lblLiquidador.AutoSize = true;
-            this.lblLiquidador.Location = new System.Drawing.Point(57, 259);
+            this.lblLiquidador.Location = new System.Drawing.Point(57, 286);
             this.lblLiquidador.Name = "lblLiquidador";
             this.lblLiquidador.Size = new System.Drawing.Size(127, 13);
             this.lblLiquidador.TabIndex = 20;
@@ -152,7 +180,7 @@ namespace pryMansillaIE
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(57, 226);
+            this.lblDireccion.Location = new System.Drawing.Point(57, 251);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(58, 13);
             this.lblDireccion.TabIndex = 19;
@@ -161,11 +189,11 @@ namespace pryMansillaIE
             // lblJuzgado
             // 
             this.lblJuzgado.AutoSize = true;
-            this.lblJuzgado.Location = new System.Drawing.Point(57, 200);
+            this.lblJuzgado.Location = new System.Drawing.Point(57, 202);
             this.lblJuzgado.Name = "lblJuzgado";
-            this.lblJuzgado.Size = new System.Drawing.Size(96, 13);
+            this.lblJuzgado.Size = new System.Drawing.Size(53, 13);
             this.lblJuzgado.TabIndex = 18;
-            this.lblJuzgado.Text = "Juzg. Jurisdicción: ";
+            this.lblJuzgado.Text = "Juzgado: ";
             // 
             // lblExpediente
             // 
@@ -203,36 +231,31 @@ namespace pryMansillaIE
             this.lblNumero.TabIndex = 14;
             this.lblNumero.Text = "Numero:";
             // 
-            // mskExpediente
-            // 
-            this.mskExpediente.Location = new System.Drawing.Point(205, 166);
-            this.mskExpediente.Name = "mskExpediente";
-            this.mskExpediente.Size = new System.Drawing.Size(121, 20);
-            this.mskExpediente.TabIndex = 19;
-            // 
-            // cmbLiquidador
-            // 
-            this.cmbLiquidador.FormattingEnabled = true;
-            this.cmbLiquidador.Location = new System.Drawing.Point(205, 259);
-            this.cmbLiquidador.Name = "cmbLiquidador";
-            this.cmbLiquidador.Size = new System.Drawing.Size(121, 21);
-            this.cmbLiquidador.TabIndex = 28;
-            // 
-            // cmbJurisdiccion
-            // 
-            this.cmbJurisdiccion.FormattingEnabled = true;
-            this.cmbJurisdiccion.Location = new System.Drawing.Point(205, 197);
-            this.cmbJurisdiccion.Name = "cmbJurisdiccion";
-            this.cmbJurisdiccion.Size = new System.Drawing.Size(121, 21);
-            this.cmbJurisdiccion.TabIndex = 29;
-            // 
             // grillaProveedores
             // 
             this.grillaProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaProveedores.Location = new System.Drawing.Point(12, 394);
             this.grillaProveedores.Name = "grillaProveedores";
+            this.grillaProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grillaProveedores.Size = new System.Drawing.Size(372, 182);
             this.grillaProveedores.TabIndex = 19;
+            // 
+            // lblJurisdiccion
+            // 
+            this.lblJurisdiccion.AutoSize = true;
+            this.lblJurisdiccion.Location = new System.Drawing.Point(57, 229);
+            this.lblJurisdiccion.Name = "lblJurisdiccion";
+            this.lblJurisdiccion.Size = new System.Drawing.Size(65, 13);
+            this.lblJurisdiccion.TabIndex = 30;
+            this.lblJurisdiccion.Text = "Jurisdicción:";
+            // 
+            // cmbJurisdiccion
+            // 
+            this.cmbJurisdiccion.FormattingEnabled = true;
+            this.cmbJurisdiccion.Location = new System.Drawing.Point(205, 226);
+            this.cmbJurisdiccion.Name = "cmbJurisdiccion";
+            this.cmbJurisdiccion.Size = new System.Drawing.Size(121, 21);
+            this.cmbJurisdiccion.TabIndex = 31;
             // 
             // frmRegistroProveedores
             // 
@@ -274,9 +297,11 @@ namespace pryMansillaIE
         private System.Windows.Forms.Label lblApertura;
         private System.Windows.Forms.Label lblEntidad;
         private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.ComboBox cmbJurisdiccion;
+        private System.Windows.Forms.ComboBox cmbJuzgado;
         private System.Windows.Forms.ComboBox cmbLiquidador;
         private System.Windows.Forms.MaskedTextBox mskExpediente;
         private System.Windows.Forms.DataGridView grillaProveedores;
+        private System.Windows.Forms.ComboBox cmbJurisdiccion;
+        private System.Windows.Forms.Label lblJurisdiccion;
     }
 }

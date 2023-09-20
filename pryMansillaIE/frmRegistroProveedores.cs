@@ -20,32 +20,60 @@ namespace pryMansillaIE
 
         private void frmRegistroProveedores_Load(object sender, EventArgs e)
         {
-            //Traer  todos los proveedores registrados.
 
-            StreamReader lectorArchivo = new StreamReader("listadoProveedores.csv");
-            bool eslaprimerafila = true;
-            string leerElRenglon = "";
-            string [] separarDatos;
-            
-            while (!lectorArchivo.EndOfStream)
+            string archivoProveedor = "Listado de aseguradores.csv";
+            try
             {
-                leerElRenglon = lectorArchivo.ReadLine();
-                separarDatos = leerElRenglon.Split(';');
-
-                if(eslaprimerafila == true)
+                using (StreamReader sr = new StreamReader(archivoProveedor))
                 {
-                    for(int indice = 0; indice < separarDatos.Length; indice++)
+                    string readLine = sr.ReadLine();
+                    if (readLine != null)
                     {
-                        grillaProveedores.Columns.Add(separarDatos[indice], separarDatos[indice]);
+                        string[] separador = readLine.Split(';');
+                        foreach (string columna in separador)
+                        {
+                            grillaProveedores.Columns.Add(columna, columna);
+                        }
+                        HashSet<string> jurisdiccionesUnicas = new HashSet<string>();
+                        HashSet<string> juzgadoUnico = new HashSet<string>();
+                        HashSet<string> responsablesUnicos = new HashSet<string>();
+
+                        while (!sr.EndOfStream)
+                        {
+                            readLine = sr.ReadLine();
+                            separador = readLine.Split(';');
+                            grillaProveedores.Rows.Add(separador);
+                            juzgadoUnico.Add(separador[4]);
+                            jurisdiccionesUnicas.Add(separador[5]);
+                            responsablesUnicos.Add(separador[7]);
+                        }
+
+                        foreach (string jurisdiccion in jurisdiccionesUnicas)
+                        {
+                            cmbJurisdiccion.Items.Add(jurisdiccion);
+                        }
+
+                        foreach (string juzgado in juzgadoUnico)
+                        {
+                            cmbJuzgado.Items.Add(juzgado);
+                        }
+
+                        foreach (string responsable in responsablesUnicos)
+                        {
+                            cmbLiquidador.Items.Add(responsable);
+                        }
                     }
-                    eslaprimerafila = false;
-                }
-                else
-                {
-                    grillaProveedores.Rows.Add(separarDatos);
                 }
             }
-            lectorArchivo.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void cmbJuzgado_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
