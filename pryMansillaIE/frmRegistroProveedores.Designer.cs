@@ -34,11 +34,12 @@ namespace pryMansillaIE
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grbCuadro = new System.Windows.Forms.GroupBox();
+            this.cmbJurisdiccion = new System.Windows.Forms.ComboBox();
+            this.lblJurisdiccion = new System.Windows.Forms.Label();
             this.cmbJuzgado = new System.Windows.Forms.ComboBox();
             this.cmbLiquidador = new System.Windows.Forms.ComboBox();
             this.mskExpediente = new System.Windows.Forms.MaskedTextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtApertura = new System.Windows.Forms.TextBox();
             this.txtEntidad = new System.Windows.Forms.TextBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.lblLiquidador = new System.Windows.Forms.Label();
@@ -49,8 +50,7 @@ namespace pryMansillaIE
             this.lblEntidad = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
             this.grillaProveedores = new System.Windows.Forms.DataGridView();
-            this.lblJurisdiccion = new System.Windows.Forms.Label();
-            this.cmbJurisdiccion = new System.Windows.Forms.ComboBox();
+            this.dtpApertura = new System.Windows.Forms.DateTimePicker();
             this.grbCuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaProveedores)).BeginInit();
             this.SuspendLayout();
@@ -93,13 +93,13 @@ namespace pryMansillaIE
             // 
             // grbCuadro
             // 
+            this.grbCuadro.Controls.Add(this.dtpApertura);
             this.grbCuadro.Controls.Add(this.cmbJurisdiccion);
             this.grbCuadro.Controls.Add(this.lblJurisdiccion);
             this.grbCuadro.Controls.Add(this.cmbJuzgado);
             this.grbCuadro.Controls.Add(this.cmbLiquidador);
             this.grbCuadro.Controls.Add(this.mskExpediente);
             this.grbCuadro.Controls.Add(this.txtDireccion);
-            this.grbCuadro.Controls.Add(this.txtApertura);
             this.grbCuadro.Controls.Add(this.txtEntidad);
             this.grbCuadro.Controls.Add(this.txtNumero);
             this.grbCuadro.Controls.Add(this.lblLiquidador);
@@ -115,6 +115,23 @@ namespace pryMansillaIE
             this.grbCuadro.TabIndex = 18;
             this.grbCuadro.TabStop = false;
             this.grbCuadro.Text = "Datos";
+            // 
+            // cmbJurisdiccion
+            // 
+            this.cmbJurisdiccion.FormattingEnabled = true;
+            this.cmbJurisdiccion.Location = new System.Drawing.Point(205, 226);
+            this.cmbJurisdiccion.Name = "cmbJurisdiccion";
+            this.cmbJurisdiccion.Size = new System.Drawing.Size(121, 21);
+            this.cmbJurisdiccion.TabIndex = 31;
+            // 
+            // lblJurisdiccion
+            // 
+            this.lblJurisdiccion.AutoSize = true;
+            this.lblJurisdiccion.Location = new System.Drawing.Point(57, 229);
+            this.lblJurisdiccion.Name = "lblJurisdiccion";
+            this.lblJurisdiccion.Size = new System.Drawing.Size(65, 13);
+            this.lblJurisdiccion.TabIndex = 30;
+            this.lblJurisdiccion.Text = "Jurisdicción:";
             // 
             // cmbJuzgado
             // 
@@ -139,6 +156,7 @@ namespace pryMansillaIE
             this.mskExpediente.Name = "mskExpediente";
             this.mskExpediente.Size = new System.Drawing.Size(121, 20);
             this.mskExpediente.TabIndex = 19;
+            this.mskExpediente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskExpediente_KeyPress);
             // 
             // txtDireccion
             // 
@@ -146,13 +164,6 @@ namespace pryMansillaIE
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(121, 20);
             this.txtDireccion.TabIndex = 26;
-            // 
-            // txtApertura
-            // 
-            this.txtApertura.Location = new System.Drawing.Point(205, 126);
-            this.txtApertura.Name = "txtApertura";
-            this.txtApertura.Size = new System.Drawing.Size(121, 20);
-            this.txtApertura.TabIndex = 23;
             // 
             // txtEntidad
             // 
@@ -167,6 +178,7 @@ namespace pryMansillaIE
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(121, 20);
             this.txtNumero.TabIndex = 21;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // lblLiquidador
             // 
@@ -239,23 +251,15 @@ namespace pryMansillaIE
             this.grillaProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grillaProveedores.Size = new System.Drawing.Size(372, 182);
             this.grillaProveedores.TabIndex = 19;
+            this.grillaProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaProveedores_CellClick);
             // 
-            // lblJurisdiccion
+            // dtpApertura
             // 
-            this.lblJurisdiccion.AutoSize = true;
-            this.lblJurisdiccion.Location = new System.Drawing.Point(57, 229);
-            this.lblJurisdiccion.Name = "lblJurisdiccion";
-            this.lblJurisdiccion.Size = new System.Drawing.Size(65, 13);
-            this.lblJurisdiccion.TabIndex = 30;
-            this.lblJurisdiccion.Text = "Jurisdicción:";
-            // 
-            // cmbJurisdiccion
-            // 
-            this.cmbJurisdiccion.FormattingEnabled = true;
-            this.cmbJurisdiccion.Location = new System.Drawing.Point(205, 226);
-            this.cmbJurisdiccion.Name = "cmbJurisdiccion";
-            this.cmbJurisdiccion.Size = new System.Drawing.Size(121, 21);
-            this.cmbJurisdiccion.TabIndex = 31;
+            this.dtpApertura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpApertura.Location = new System.Drawing.Point(205, 126);
+            this.dtpApertura.Name = "dtpApertura";
+            this.dtpApertura.Size = new System.Drawing.Size(121, 20);
+            this.dtpApertura.TabIndex = 32;
             // 
             // frmRegistroProveedores
             // 
@@ -287,7 +291,6 @@ namespace pryMansillaIE
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox grbCuadro;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtApertura;
         private System.Windows.Forms.TextBox txtEntidad;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label lblLiquidador;
@@ -303,5 +306,6 @@ namespace pryMansillaIE
         private System.Windows.Forms.DataGridView grillaProveedores;
         private System.Windows.Forms.ComboBox cmbJurisdiccion;
         private System.Windows.Forms.Label lblJurisdiccion;
+        private System.Windows.Forms.DateTimePicker dtpApertura;
     }
 }

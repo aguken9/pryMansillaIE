@@ -76,5 +76,33 @@ namespace pryMansillaIE
         {
 
         }
+
+        private void grillaProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNumero.Text = grillaProveedores.CurrentRow.Cells[0].Value.ToString();
+            txtEntidad.Text = grillaProveedores.CurrentRow.Cells[1].Value.ToString();
+            dtpApertura.Text = grillaProveedores.CurrentRow.Cells[2].Value.ToString();
+            mskExpediente.Text = grillaProveedores.CurrentRow.Cells[3].Value.ToString();
+            cmbJuzgado.SelectedItem = grillaProveedores.CurrentRow.Cells[4].Value.ToString();
+            cmbJurisdiccion.SelectedItem = grillaProveedores.CurrentRow.Cells[5].Value.ToString();
+            txtDireccion.Text = grillaProveedores.CurrentRow.Cells[6].Value.ToString();
+            cmbLiquidador.Text = grillaProveedores.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void mskExpediente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Bloquea la entrada si no es un número o una tecla de control (como Backspace)
+            }
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Bloquea la entrada si no es un número o una tecla de control (como Backspace)
+            }
+        }
     }
 }
