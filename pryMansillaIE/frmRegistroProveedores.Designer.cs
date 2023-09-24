@@ -34,6 +34,7 @@ namespace pryMansillaIE
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grbCuadro = new System.Windows.Forms.GroupBox();
+            this.dtpApertura = new System.Windows.Forms.DateTimePicker();
             this.cmbJurisdiccion = new System.Windows.Forms.ComboBox();
             this.lblJurisdiccion = new System.Windows.Forms.Label();
             this.cmbJuzgado = new System.Windows.Forms.ComboBox();
@@ -50,7 +51,6 @@ namespace pryMansillaIE
             this.lblEntidad = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
             this.grillaProveedores = new System.Windows.Forms.DataGridView();
-            this.dtpApertura = new System.Windows.Forms.DateTimePicker();
             this.grbCuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaProveedores)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,7 @@ namespace pryMansillaIE
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -81,6 +82,7 @@ namespace pryMansillaIE
             this.btnEliminar.TabIndex = 16;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
@@ -115,6 +117,14 @@ namespace pryMansillaIE
             this.grbCuadro.TabIndex = 18;
             this.grbCuadro.TabStop = false;
             this.grbCuadro.Text = "Datos";
+            // 
+            // dtpApertura
+            // 
+            this.dtpApertura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpApertura.Location = new System.Drawing.Point(205, 126);
+            this.dtpApertura.Name = "dtpApertura";
+            this.dtpApertura.Size = new System.Drawing.Size(121, 20);
+            this.dtpApertura.TabIndex = 32;
             // 
             // cmbJurisdiccion
             // 
@@ -153,6 +163,7 @@ namespace pryMansillaIE
             // mskExpediente
             // 
             this.mskExpediente.Location = new System.Drawing.Point(205, 166);
+            this.mskExpediente.Mask = "0000/0000";
             this.mskExpediente.Name = "mskExpediente";
             this.mskExpediente.Size = new System.Drawing.Size(121, 20);
             this.mskExpediente.TabIndex = 19;
@@ -252,14 +263,6 @@ namespace pryMansillaIE
             this.grillaProveedores.Size = new System.Drawing.Size(372, 182);
             this.grillaProveedores.TabIndex = 19;
             this.grillaProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaProveedores_CellClick);
-            // 
-            // dtpApertura
-            // 
-            this.dtpApertura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpApertura.Location = new System.Drawing.Point(205, 126);
-            this.dtpApertura.Name = "dtpApertura";
-            this.dtpApertura.Size = new System.Drawing.Size(121, 20);
-            this.dtpApertura.TabIndex = 32;
             // 
             // frmRegistroProveedores
             // 

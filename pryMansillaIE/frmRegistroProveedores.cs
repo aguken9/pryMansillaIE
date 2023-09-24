@@ -18,10 +18,12 @@ namespace pryMansillaIE
             InitializeComponent();
         }
 
+        private List<clsRegistro> registros = new List<clsRegistro>();
+        string archivoProveedor = "Listado de aseguradores.csv";
+
         private void frmRegistroProveedores_Load(object sender, EventArgs e)
         {
-
-            string archivoProveedor = "Listado de aseguradores.csv";
+           
             try
             {
                 using (StreamReader sr = new StreamReader(archivoProveedor))
@@ -104,5 +106,77 @@ namespace pryMansillaIE
                 e.Handled = true; // Bloquea la entrada si no es un número o una tecla de control (como Backspace)
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+            int numero = Convert.ToInt32(txtNumero.Text);
+            string entidad = txtEntidad.Text;
+            DateTime apertura = dtpApertura.Value;
+            string expediente = mskExpediente.Text;
+            string juzgado = cmbJuzgado.Text;
+            string jurisdiccion = cmbJurisdiccion.Text;
+            string direccion = txtDireccion.Text;
+            string liquidador = cmbLiquidador.Text;
+
+            //Crear un objeto Persona y agregarlo a la lista
+            clsRegistro nuevoRegistro = new clsRegistro { Numero = numero, Entidad = entidad, Apertura = apertura, Expediente = expediente, Juzgado = juzgado, Jurisdiccion = jurisdiccion, Direccion = direccion, LiquidadorResponsable = liquidador };
+            registros.Add(nuevoRegistro);
+            //// Actualizar la lista en el archivo CSV
+            ActualizarArchivoCSV();
+            CargarDatosEnGrilla();
+            LimpiarCampos();
+        }
+
+        private void CargarDatosEnGrilla()
+        {
+            foreach (var reg in registros)
+            {
+                grillaProveedores.Rows.Add(new object[] { reg.Numero, reg.Entidad, reg.Apertura, reg.Expediente, reg.Juzgado, reg.Jurisdiccion, reg.Direccion, reg.LiquidadorResponsable });
+            }
+        }
+
+
+        private void LimpiarCampos()
+        {
+            txtNumero.Clear();
+            txtEntidad.Clear();
+            dtpApertura.Value = DateTime.Now; // Puedes establecer la fecha actual o cualquier otra fecha predeterminada
+            mskExpediente.Clear();
+            cmbJuzgado.SelectedIndex = -1; // Deseleccionar cualquier elemento seleccionado en el ComboBox
+            cmbJurisdiccion.SelectedIndex = -1;
+            txtDireccion.Clear();
+            cmbLiquidador.SelectedIndex = -1;
+        }
+
+        private void ActualizarArchivoCSV()
+        {
+            try
+            {
+                // Abrir o crear el archivo CSV en modo escritura.
+                using (StreamWriter sw = new StreamWriter(archivoProveedor, true))
+                {
+                    // Iterar a través de la lista de personas y escribir sus datos en el archivo CSV.
+                    foreach (var reg in registros)
+                    {
+                        // Escribir los datos en formato CSV (separados por comas).
+                        sw.WriteLine($"{reg.Numero};{reg.Entidad};{reg.Apertura};{reg.Expediente};{reg.Juzgado};{reg.Jurisdiccion};{reg.Direccion};{reg.LiquidadorResponsable}");
+                    }
+                }
+                grillaProveedores.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+                // Mostrar un mensaje de error en caso de que ocurra una excepción.
+                MessageBox.Show("Error al escribir en el archivo CSV: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+  
+        }
     }
 }
+
