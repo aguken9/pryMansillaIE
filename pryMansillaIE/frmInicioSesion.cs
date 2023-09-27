@@ -40,34 +40,20 @@ namespace pryMansillaIE
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
-            StreamWriter sw = new StreamWriter("logInicio", true);
-            sw.WriteLine(txtUsuario.Text+ "- Fecha: " + DateTime.Now);
-            sw.Close();
-            Usuario usuario = new Usuario();
-            usuario.Nombre = txtUsuario.Text;
-            frmPrincipal principalForm = new frmPrincipal(usuario);
-            principalForm.Show();
-            this.Hide();
-
-            //UserName = txtUsuario.Text; // Asigna el nombre de usuario
-            //this.Hide(); // Oculta el formulario de inicio de sesión
-            //frmPrincipal menuForm = new frmPrincipal();
-            //menuForm.Show(); // Muestra el formulario de menú
-
-
-
-
-            //  string usuario = txtUsuario.Text;
-            // string contraseña = txtContraseña.Text;
-            // if (usuario == "" && contraseña == "")
-            // {
-            //   GenerarInforme(usuario);
-            // MessageBox.Show("Inicio de sesión exitoso.");
-            // }
-            //else
+            if (txtUsuario.Text == "agustin" && txtContraseña.Text == "123")
             {
-                // Inicio de sesión fallido, mostrar un mensaje de error
-              //  MessageBox.Show("Nombre de usuario o contraseña incorrectos.");
+                StreamWriter sw = new StreamWriter("logInicio", true);
+                sw.WriteLine(txtUsuario.Text + "- Fecha: " + DateTime.Now);
+                sw.Close();
+                Usuario usuario = new Usuario();
+                usuario.Nombre = txtUsuario.Text;
+                frmPrincipal principalForm = new frmPrincipal(usuario);
+                principalForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Datos de inicio de sesion incorrectos");
             }
         }
     }
