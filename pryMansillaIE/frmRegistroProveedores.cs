@@ -134,6 +134,7 @@ namespace pryMansillaIE
             {
                 grillaProveedores.Rows.Add(new object[] { reg.Numero, reg.Entidad, reg.Apertura, reg.Expediente, reg.Juzgado, reg.Jurisdiccion, reg.Direccion, reg.LiquidadorResponsable });
             }
+            registros.Clear();
         }
 
 
@@ -175,7 +176,69 @@ namespace pryMansillaIE
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-  
+            if (grillaProveedores.SelectedRows.Count > 0)
+            {
+                int numeroRegistroAEliminar = grillaProveedores.SelectedRows[0].Index + 2; // Obtén el número de fila seleccionada
+
+                DialogResult resultado = MessageBox.Show("¿Seguro que deseas eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    // Elimina la fila del DataGridView
+                    grillaProveedores.Rows.RemoveAt(grillaProveedores.SelectedRows[0].Index);
+
+                    // Elimina la fila del archivo CSV
+                    EliminarRegistroCSV(archivoProveedor, numeroRegistroAEliminar);
+                    ActualizarArchivoCSV();
+                    CargarDatosEnGrilla();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Sin selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
+        static void EliminarRegistroCSV(string filePath, int numeroRegistroAEliminar)
+        {
+            try
+            {
+                // Lee todo el contenido del archivo CSV
+                string[] lineas = File.ReadAllLines(filePath);
+
+                // Verifica que el número de registro a eliminar sea válido
+                if (numeroRegistroAEliminar >= 1 && numeroRegistroAEliminar <= lineas.Length)
+                {
+                    // Crea un nuevo contenido sin el registro a eliminar
+                    StringBuilder nuevoContenido = new StringBuilder();
+                    for (int i = 0; i < lineas.Length; i++)
+                    {
+                        if (i + 1 != numeroRegistroAEliminar) // Omitir el registro que deseas eliminar
+                        {
+                            nuevoContenido.AppendLine(lineas[i]);
+                        }
+                    }
+
+                    // Escribe el nuevo contenido en el archivo CSV
+                    File.WriteAllText(filePath, nuevoContenido.ToString());
+
+                    MessageBox.Show("Registro eliminado con éxito.");
+                }
+                else
+                {
+                    MessageBox.Show("Número de registro a eliminar no válido.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el registro: " + ex.Message);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
