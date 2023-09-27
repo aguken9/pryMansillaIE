@@ -16,7 +16,35 @@ namespace pryMansillaIE
         public frmRegistroProveedores()
         {
             InitializeComponent();
+
+            btnAgregar.Enabled = false;
+            btnEliminar.Enabled = false;
+
+            // Asociar eventos a los controles relevantes
+            txtNumero.TextChanged += HabilitarBotones;
+            txtEntidad.TextChanged += HabilitarBotones;
+            cmbJuzgado.SelectedIndexChanged += HabilitarBotones;
+            cmbJurisdiccion.SelectedIndexChanged += HabilitarBotones;
+            txtDireccion.TextChanged += HabilitarBotones;
+            cmbLiquidador.SelectedIndexChanged += HabilitarBotones;
         }
+
+
+        private void HabilitarBotones(object sender, EventArgs e)
+        {
+            bool numeroValido = !string.IsNullOrEmpty(txtNumero.Text);
+            bool entidadValida = !string.IsNullOrEmpty(txtEntidad.Text);
+            bool juzgadoSeleccionado = !string.IsNullOrEmpty(cmbJuzgado.Text);
+            bool jurisdiccionSeleccionada = !string.IsNullOrEmpty(cmbJurisdiccion.Text);
+            bool direccionValida = !string.IsNullOrEmpty(txtDireccion.Text);
+            bool liquidadorSeleccionado = !string.IsNullOrEmpty(cmbLiquidador.Text);
+
+            // Habilitar el botón Agregar y Eliminar si todas las condiciones se cumplen
+            btnAgregar.Enabled = numeroValido && entidadValida && juzgadoSeleccionado && jurisdiccionSeleccionada && direccionValida && liquidadorSeleccionado;
+            btnEliminar.Enabled = numeroValido && entidadValida && juzgadoSeleccionado && jurisdiccionSeleccionada && direccionValida && liquidadorSeleccionado;
+        }
+
+
 
         private List<clsRegistro> registros = new List<clsRegistro>();
         string archivoProveedor = "Listado de aseguradores.csv";
