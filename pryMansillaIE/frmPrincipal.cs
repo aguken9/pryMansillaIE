@@ -71,5 +71,10 @@ namespace pryMansillaIE
         {
 
         }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

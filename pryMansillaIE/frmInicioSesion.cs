@@ -35,8 +35,18 @@ namespace pryMansillaIE
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+            if (txtUsuario.Text != "")
+            {
+                txtContraseña.Enabled = true;
+            }
+            else
+            {
+                txtContraseña.Enabled = false;
+            }
+
         }
 
+        int intentos = 0;
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
@@ -53,8 +63,34 @@ namespace pryMansillaIE
             }
             else
             {
-                MessageBox.Show("Datos de inicio de sesion incorrectos");
+                MessageBox.Show("Datos de inicio de sesion incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                intentos++;
+                MessageBox.Show(intentos + " de 5 intentos","Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsuario.Clear();
+                txtContraseña.Clear();
+
+
+                if (intentos >= 5)
+                {
+                    MessageBox.Show("Usted se ha quedado sin intentos, por favor espere " + (temporizador1.Interval / 1000) + " segundos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUsuario.Enabled = false;
+                    txtContraseña.Enabled = false;
+                    btnIngresar.Enabled = false;
+
+                    temporizador1.Tick += temporizador1_Tick;
+                    temporizador1.Start();
+                }
             }
+        }
+
+        private void temporizador1_Tick(object sender, EventArgs e)
+        {
+            // Habilitar el botón y detener el temporizador.
+            intentos = 0;
+            txtUsuario.Enabled = true;
+            txtContraseña.Enabled = true;
+            btnIngresar.Enabled = true;
+            temporizador1.Stop();
         }
     }
 }

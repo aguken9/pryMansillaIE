@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.lblBroker = new System.Windows.Forms.Label();
             this.lblContra = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.temporizador1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -91,6 +93,11 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // temporizador1
+            // 
+            this.temporizador1.Interval = 5000;
+            this.temporizador1.Tick += new System.EventHandler(this.temporizador1_Tick);
+            // 
             // frmInicioSesion
             // 
             this.AcceptButton = this.btnIngresar;
@@ -120,5 +127,6 @@
         private System.Windows.Forms.Label lblContra;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Timer temporizador1;
     }
 }

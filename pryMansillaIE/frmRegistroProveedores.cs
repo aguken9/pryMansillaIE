@@ -147,13 +147,29 @@ namespace pryMansillaIE
             string direccion = txtDireccion.Text;
             string liquidador = cmbLiquidador.Text;
 
-            //Crear un objeto Persona y agregarlo a la lista
-            clsRegistro nuevoRegistro = new clsRegistro { Numero = numero, Entidad = entidad, Apertura = apertura, Expediente = expediente, Juzgado = juzgado, Jurisdiccion = jurisdiccion, Direccion = direccion, LiquidadorResponsable = liquidador };
-            registros.Add(nuevoRegistro);
-            //// Actualizar la lista en el archivo CSV
-            ActualizarArchivoCSV();
-            CargarDatosEnGrilla();
-            LimpiarCampos();
+            bool idRepetido = false;
+            foreach (DataGridViewRow fila in grillaProveedores.Rows)
+            {
+                if (fila.Cells[0].Value != null && Convert.ToInt32(fila.Cells[0].Value) == numero)
+                {
+                    idRepetido = true;
+                    break; // Salir del bucle si encuentra un ID repetido
+                }
+            }
+
+            if (idRepetido)
+            {
+                MessageBox.Show("El número ya existe en la grilla. Ingrese un número diferente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // El ID no está repetido, agregar el nuevo registro
+                clsRegistro nuevoRegistro = new clsRegistro { Numero = numero, Entidad = entidad, Apertura = apertura, Expediente = expediente, Juzgado = juzgado, Jurisdiccion = jurisdiccion, Direccion = direccion, LiquidadorResponsable = liquidador };
+                registros.Add(nuevoRegistro);
+                ActualizarArchivoCSV();
+                CargarDatosEnGrilla();
+                LimpiarCampos();
+            }
         }
 
         private void CargarDatosEnGrilla()

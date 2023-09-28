@@ -72,8 +72,9 @@
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GesProvRegistro});
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
-            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
+            this.proveedorToolStripMenuItem.Click += new System.EventHandler(this.proveedorToolStripMenuItem_Click);
             // 
             // GesProvRegistro
             // 
