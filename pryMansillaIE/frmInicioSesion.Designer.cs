@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicioSesion));
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.lblBroker = new System.Windows.Forms.Label();
             this.lblContra = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.temporizador1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,17 +56,6 @@
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(237, 20);
             this.txtContraseña.TabIndex = 1;
-            // 
-            // lblBroker
-            // 
-            this.lblBroker.AutoSize = true;
-            this.lblBroker.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBroker.Location = new System.Drawing.Point(136, 20);
-            this.lblBroker.Name = "lblBroker";
-            this.lblBroker.Size = new System.Drawing.Size(161, 25);
-            this.lblBroker.TabIndex = 2;
-            this.lblBroker.Text = "Broker Seguros";
-            this.lblBroker.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblContra
             // 
@@ -105,26 +95,38 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::pryMansillaIE.Properties.Resources.broker;
-            this.pictureBox1.Location = new System.Drawing.Point(56, 58);
+            this.pictureBox1.Location = new System.Drawing.Point(56, 59);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(350, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblTitulo.Location = new System.Drawing.Point(135, 18);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(187, 26);
+            this.lblTitulo.TabIndex = 7;
+            this.lblTitulo.Text = "Ingrese sus Datos";
+            // 
             // frmInicioSesion
             // 
             this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(436, 245);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblContra);
-            this.Controls.Add(this.lblBroker);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
@@ -139,11 +141,11 @@
 
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Label lblBroker;
         private System.Windows.Forms.Label lblContra;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Timer temporizador1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

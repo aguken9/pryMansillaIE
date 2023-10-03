@@ -29,6 +29,7 @@ namespace pryMansillaIE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedoresActivos));
             this.trvProveedores = new System.Windows.Forms.TreeView();
             this.lstDatos = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
@@ -52,9 +53,11 @@ namespace pryMansillaIE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(302, 443);
             this.Controls.Add(this.lstDatos);
             this.Controls.Add(this.trvProveedores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProveedoresActivos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores Activos";

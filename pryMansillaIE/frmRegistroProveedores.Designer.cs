@@ -29,6 +29,7 @@ namespace pryMansillaIE
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroProveedores));
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -176,7 +177,7 @@ namespace pryMansillaIE
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(205, 248);
+            this.txtDireccion.Location = new System.Drawing.Point(205, 257);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(121, 20);
             this.txtDireccion.TabIndex = 26;
@@ -208,7 +209,7 @@ namespace pryMansillaIE
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(57, 251);
+            this.lblDireccion.Location = new System.Drawing.Point(57, 260);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(58, 13);
             this.lblDireccion.TabIndex = 19;
@@ -273,6 +274,7 @@ namespace pryMansillaIE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(970, 536);
             this.Controls.Add(this.grillaProveedores);
             this.Controls.Add(this.grbCuadro);
@@ -280,6 +282,7 @@ namespace pryMansillaIE
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistroProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Proveedores";

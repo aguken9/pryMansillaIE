@@ -28,7 +28,7 @@ namespace pryMansillaIE
             txtDireccion.TextChanged += HabilitarBotones;
             cmbLiquidador.SelectedIndexChanged += HabilitarBotones;
         }
-
+        
 
         private void HabilitarBotones(object sender, EventArgs e)
         {

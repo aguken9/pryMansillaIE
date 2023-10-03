@@ -16,7 +16,7 @@ namespace pryMansillaIE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProveedoresActivos());
+            Application.Run(new frmRegistroProveedores());
         }
     }
 }
