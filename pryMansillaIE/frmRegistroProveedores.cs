@@ -47,7 +47,7 @@ namespace pryMansillaIE
 
 
         private List<clsRegistro> registros = new List<clsRegistro>();
-        string archivoProveedor = "Listado de aseguradores.csv";
+        string archivoProveedor = "../../Listado de aseguradores.csv";
 
         private void frmRegistroProveedores_Load(object sender, EventArgs e)
         {
