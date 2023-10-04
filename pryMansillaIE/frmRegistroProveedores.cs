@@ -326,21 +326,14 @@ namespace pryMansillaIE
             string Direccion = txtDireccion.Text;
             string Liquidador = cmbLiquidador.Text;
             DateTime fechaApertura = dtpApertura.Value;
-
-
-            //string archivoProveedor = "Listado de aseguradores.csv";
-
             try
             {
                 // Crear una lista para almacenar las líneas del archivo CSV
                 List<string> lineas = new List<string>();
-
                 // Agregar la primera línea con encabezados de columnas
                 lineas.Add("Nº;Entidad;APERTURA;Nº EXPTE;JUZG.;JURISD;DIRECCION;LIQUIDADOR RESPONSABLE");
-
                 // Variable para verificar si es la primera línea del archivo
                 bool primerLinea = true;
-
                 // Abrir el archivo CSV para lectura
                 using (StreamReader lector = new StreamReader(archivoProveedor))
                 {
@@ -389,10 +382,8 @@ namespace pryMansillaIE
                         }
                     }
                 }
-
                 // Mostrar un mensaje de éxito
                 MessageBox.Show("Datos del Proveedor Nº " + Numero + " modificados correctamente.", "Modificación de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 // Limpiar y recargar los datos en la grilla de proveedores
                 grillaProveedores.Rows.Clear();
                 grillaProveedores.Columns.Clear();
@@ -403,6 +394,7 @@ namespace pryMansillaIE
                 // En caso de error, mostrar un mensaje de error
                 MessageBox.Show("Error al modificar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }
