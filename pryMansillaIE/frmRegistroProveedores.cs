@@ -19,6 +19,7 @@ namespace pryMansillaIE
 
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
 
             // Asociar eventos a los controles relevantes
             txtNumero.TextChanged += HabilitarBotones;
@@ -42,6 +43,7 @@ namespace pryMansillaIE
             // Habilitar el botón Agregar y Eliminar si todas las condiciones se cumplen
             btnAgregar.Enabled = numeroValido && entidadValida && juzgadoSeleccionado && jurisdiccionSeleccionada && direccionValida && liquidadorSeleccionado;
             btnEliminar.Enabled = numeroValido && entidadValida && juzgadoSeleccionado && jurisdiccionSeleccionada && direccionValida && liquidadorSeleccionado;
+            btnModificar.Enabled = numeroValido && entidadValida && juzgadoSeleccionado && jurisdiccionSeleccionada && direccionValida && liquidadorSeleccionado; 
         }
 
 
@@ -182,6 +184,7 @@ namespace pryMansillaIE
         }
 
 
+       
         private void LimpiarCampos()
         {
             txtNumero.Clear();
@@ -283,6 +286,123 @@ namespace pryMansillaIE
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CargarTodo()
+        {
+            using (StreamReader sr = new StreamReader(archivoProveedor))
+            {
+                string readLine = sr.ReadLine();
+                if (readLine != null)
+                {
+                    string[] separador = readLine.Split(';');
+                    foreach (string columna in separador)
+                    {
+                        grillaProveedores.Columns.Add(columna, columna);
+                    }
+                    HashSet<string> jurisdiccionesUnicas = new HashSet<string>();
+                    HashSet<string> juzgadoUnico = new HashSet<string>();
+                    HashSet<string> responsablesUnicos = new HashSet<string>();
+
+                    while (!sr.EndOfStream)
+                    {
+                        readLine = sr.ReadLine();
+                        separador = readLine.Split(';');
+                        grillaProveedores.Rows.Add(separador);
+                        juzgadoUnico.Add(separador[4]);
+                        jurisdiccionesUnicas.Add(separador[5]);
+                        responsablesUnicos.Add(separador[7]);
+                    }
+                }
+            }
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            int Numero = int.Parse(txtNumero.Text);
+            string Entidad = txtEntidad.Text;
+            string Expediente = mskExpediente.Text;
+            string Juzgado = cmbJuzgado.Text;
+            string Jurisdiccion = cmbJurisdiccion.Text;
+            string Direccion = txtDireccion.Text;
+            string Liquidador = cmbLiquidador.Text;
+            DateTime fechaApertura = dtpApertura.Value;
+
+
+            //string archivoProveedor = "Listado de aseguradores.csv";
+
+            try
+            {
+                // Crear una lista para almacenar las líneas del archivo CSV
+                List<string> lineas = new List<string>();
+
+                // Agregar la primera línea con encabezados de columnas
+                lineas.Add("Nº;Entidad;APERTURA;Nº EXPTE;JUZG.;JURISD;DIRECCION;LIQUIDADOR RESPONSABLE");
+
+                // Variable para verificar si es la primera línea del archivo
+                bool primerLinea = true;
+
+                // Abrir el archivo CSV para lectura
+                using (StreamReader lector = new StreamReader(archivoProveedor))
+                {
+                    string readLine;
+
+                    // Leer el archivo línea por línea
+                    while ((readLine = lector.ReadLine()) != null)
+                    {
+                        // Dividir la línea en elementos usando ';' como separador
+                        string[] separador = readLine.Split(';');
+
+                        // Verificar si hay al menos un elemento y si el primer elemento es un número válido
+                        if (separador.Length > 0 && int.TryParse(separador[0], out int existingID))
+                        {
+                            // Comprobar si el número coincide con el valor de la variable "Numero"
+                            if (existingID == Numero)
+                            {
+                                // Crear una nueva línea con los datos modificados
+                                string nuevaLinea = $"{Numero};{Entidad};{fechaApertura};{Expediente};{Juzgado};{Jurisdiccion};{Direccion};{Liquidador}";
+
+                                // Agregar la nueva línea a la lista
+                                lineas.Add(nuevaLinea);
+                            }
+                            else
+                            {
+                                // Si el número no coincide, agregar la línea original sin modificaciones
+                                lineas.Add(readLine);
+                            }
+                        }
+                    }
+                }
+                // Escribir las líneas en el archivo original (sobreescribiendo el archivo)
+                using (StreamWriter sw = new StreamWriter(archivoProveedor, false))
+                {
+                    foreach (string linea in lineas)
+                    {
+                        // Agregar la primera línea con los títulos de las columnas
+                        if (primerLinea)
+                        {
+                            sw.WriteLine(linea);
+                            primerLinea = false;
+                        }
+                        else
+                        {
+                            sw.WriteLine(linea);
+                        }
+                    }
+                }
+
+                // Mostrar un mensaje de éxito
+                MessageBox.Show("Datos del Proveedor Nº " + Numero + " modificados correctamente.", "Modificación de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar y recargar los datos en la grilla de proveedores
+                grillaProveedores.Rows.Clear();
+                grillaProveedores.Columns.Clear();
+                CargarTodo();
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, mostrar un mensaje de error
+                MessageBox.Show("Error al modificar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

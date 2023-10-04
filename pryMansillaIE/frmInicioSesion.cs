@@ -29,8 +29,6 @@ namespace pryMansillaIE
         {
 
         }
-        
-
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -65,14 +63,14 @@ namespace pryMansillaIE
             {
                 MessageBox.Show("Datos de inicio de sesion incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 intentos++;
-                MessageBox.Show(intentos + " de 5 intentos","Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(intentos + " de 3 intentos posibles","Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUsuario.Clear();
                 txtContraseña.Clear();
 
 
-                if (intentos >= 5)
+                if (intentos >= 3)
                 {
-                    MessageBox.Show("Usted se ha quedado sin intentos, por favor espere " + (temporizador1.Interval / 1000) + " segundos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ha superado el limite de los intentos, espere por favor " + (temporizador1.Interval / 1000) + " segundos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtUsuario.Enabled = false;
                     txtContraseña.Enabled = false;
                     btnIngresar.Enabled = false;

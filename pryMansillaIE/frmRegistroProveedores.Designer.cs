@@ -76,6 +76,7 @@ namespace pryMansillaIE
             this.btnModificar.TabIndex = 15;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -134,6 +135,7 @@ namespace pryMansillaIE
             // 
             // cmbJurisdiccion
             // 
+            this.cmbJurisdiccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbJurisdiccion.FormattingEnabled = true;
             this.cmbJurisdiccion.Location = new System.Drawing.Point(205, 226);
             this.cmbJurisdiccion.Name = "cmbJurisdiccion";
@@ -151,6 +153,7 @@ namespace pryMansillaIE
             // 
             // cmbJuzgado
             // 
+            this.cmbJuzgado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbJuzgado.FormattingEnabled = true;
             this.cmbJuzgado.Location = new System.Drawing.Point(205, 199);
             this.cmbJuzgado.Name = "cmbJuzgado";
@@ -160,6 +163,7 @@ namespace pryMansillaIE
             // 
             // cmbLiquidador
             // 
+            this.cmbLiquidador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLiquidador.FormattingEnabled = true;
             this.cmbLiquidador.Location = new System.Drawing.Point(205, 283);
             this.cmbLiquidador.Name = "cmbLiquidador";
