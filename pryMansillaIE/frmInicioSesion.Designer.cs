@@ -36,9 +36,9 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.temporizador1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -92,15 +92,15 @@
             this.temporizador1.Interval = 5000;
             this.temporizador1.Tick += new System.EventHandler(this.temporizador1_Tick);
             // 
-            // pictureBox1
+            // pbImagen
             // 
-            this.pictureBox1.Image = global::pryMansillaIE.Properties.Resources.broker;
-            this.pictureBox1.Location = new System.Drawing.Point(56, 59);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pbImagen.Image = global::pryMansillaIE.Properties.Resources.broker;
+            this.pbImagen.Location = new System.Drawing.Point(56, 59);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(350, 48);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 6;
+            this.pbImagen.TabStop = false;
             // 
             // lblTitulo
             // 
@@ -120,7 +120,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(436, 245);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblContra);
@@ -131,7 +131,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
             this.Load += new System.EventHandler(this.frmInicioSesion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,7 +145,7 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Timer temporizador1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.Label lblTitulo;
     }
 }

@@ -66,6 +66,7 @@ namespace pryMansillaIE
                         {
                             grillaProveedores.Columns.Add(columna, columna);
                         }
+                        //La HashSet<string> clase proporciona operaciones de conjuntos de alto rendimiento.
                         HashSet<string> jurisdiccionesUnicas = new HashSet<string>();
                         HashSet<string> juzgadoUnico = new HashSet<string>();
                         HashSet<string> responsablesUnicos = new HashSet<string>();
@@ -226,7 +227,7 @@ namespace pryMansillaIE
             if (grillaProveedores.SelectedRows.Count > 0)
             {
                 int numeroRegistroAEliminar = grillaProveedores.SelectedRows[0].Index + 2; // Obtén el número de fila seleccionada
-
+                //Especifica identificadores que indican el valor devuelto
                 DialogResult resultado = MessageBox.Show("¿Seguro que deseas eliminar esta fila?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.Yes)
@@ -258,6 +259,7 @@ namespace pryMansillaIE
                 if (numeroRegistroAEliminar >= 1 && numeroRegistroAEliminar <= lineas.Length)
                 {
                     // Crea un nuevo contenido sin el registro a eliminar
+                    //String builder representa a una serie de caracteres mutables que se pueden ampliar para almacenar mas caracteres si es necesario
                     StringBuilder nuevoContenido = new StringBuilder();
                     for (int i = 0; i < lineas.Length; i++)
                     {
@@ -300,6 +302,7 @@ namespace pryMansillaIE
                     {
                         grillaProveedores.Columns.Add(columna, columna);
                     }
+                    //La HashSet<string> clase proporciona operaciones de conjuntos de alto rendimiento.
                     HashSet<string> jurisdiccionesUnicas = new HashSet<string>();
                     HashSet<string> juzgadoUnico = new HashSet<string>();
                     HashSet<string> responsablesUnicos = new HashSet<string>();
