@@ -47,6 +47,13 @@ namespace pryMansillaIE
         int intentos = 0;
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            Usuario objValidaUsuario = new Usuario();
+
+            //objValidaUsuario.ConectarBD();
+            //Realizar y Corregir lo de los parametros
+            objValidaUsuario.RegistrarLog();
+
+            lblTitulo.Text = objValidaUsuario.estadoConexion;
 
             if (txtUsuario.Text == "agustin" && txtContraseña.Text == "123")
             {
