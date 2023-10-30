@@ -47,15 +47,18 @@ namespace pryMansillaIE
         int intentos = 0;
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario objValidaUsuario = new Usuario();
+           // Usuario objValidaUsuario = new Usuario();
 
             //objValidaUsuario.ConectarBD();
             //Realizar y Corregir lo de los parametros
-            objValidaUsuario.RegistrarLog();
+            //objValidaUsuario.RegistrarLog();
+            
+            
+            Usuario clsUsusario =new Usuario();
 
-            lblTitulo.Text = objValidaUsuario.estadoConexion;
-
-            if (txtUsuario.Text == "agustin" && txtContraseña.Text == "123")
+            //lblTitulo.Text = objValidaUsuario.estadoConexion;
+            if (clsUsusario.ValidarUsuario(txtUsuario.Text, txtContraseña.Text))
+               // if (txtUsuario.Text == "agustin" && txtContraseña.Text == "123")
             {
                 StreamWriter sw = new StreamWriter("logInicio", true);
                 sw.WriteLine(txtUsuario.Text + "- Fecha: " + DateTime.Now);

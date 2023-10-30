@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
+using System.Windows.Forms;
+
 namespace pryMansillaIE
 {
      public class Usuario
@@ -73,5 +75,28 @@ namespace pryMansillaIE
             }
 
         }
+
+        public bool ValidarUsuario(string usuario, string clave)
+        {
+            using (OleDbConnection conn = new OleDbConnection(cadenaConexion))
+            using (OleDbCommand cmd = new OleDbCommand("SELECT Usuario, Contrasena FROM Usuario WHERE Usuario = ?", conn))
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("Usuario", usuario);
+
+                    using (OleDbDataReader rd = cmd.ExecuteReader())
+                    {
+                        return rd.Read() && rd["Usuario"].ToString() == usuario && rd["Contrasena"].ToString() == clave;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
     }
 }
