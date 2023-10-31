@@ -39,13 +39,13 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.cmbUsuarios = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbMostrarF = new System.Windows.Forms.PictureBox();
             this.grbMostrar = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.grbDatos.SuspendLayout();
             this.plPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFirma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMostrarF)).BeginInit();
             this.grbMostrar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -155,13 +155,13 @@
             this.cmbUsuarios.TabIndex = 2;
             this.cmbUsuarios.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // pictureBox1
+            // pbMostrarF
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(14, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(267, 173);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pbMostrarF.Location = new System.Drawing.Point(14, 10);
+            this.pbMostrarF.Name = "pbMostrarF";
+            this.pbMostrarF.Size = new System.Drawing.Size(267, 173);
+            this.pbMostrarF.TabIndex = 3;
+            this.pbMostrarF.TabStop = false;
             // 
             // grbMostrar
             // 
@@ -177,7 +177,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbMostrarF);
             this.panel1.Location = new System.Drawing.Point(20, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(297, 196);
@@ -200,7 +200,7 @@
             this.grbDatos.PerformLayout();
             this.plPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFirma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMostrarF)).EndInit();
             this.grbMostrar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -219,7 +219,7 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Panel plPanel;
         private System.Windows.Forms.ComboBox cmbUsuarios;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbMostrarF;
         private System.Windows.Forms.GroupBox grbMostrar;
         private System.Windows.Forms.Panel panel1;
     }

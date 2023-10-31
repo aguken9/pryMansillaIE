@@ -152,7 +152,7 @@ namespace pryMansillaIE
                     using (MemoryStream ms = new MemoryStream(firmaData))
                     {
                         Image firmaImage = Image.FromStream(ms);
-                        pictureBox1.Image = firmaImage;
+                        pbMostrarF.Image = firmaImage;
                     }
                 }
                 else
