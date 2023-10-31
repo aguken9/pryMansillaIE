@@ -42,6 +42,7 @@
             this.pbMostrarF = new System.Windows.Forms.PictureBox();
             this.grbMostrar = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.grbDatos.SuspendLayout();
             this.plPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFirma)).BeginInit();
@@ -52,6 +53,7 @@
             // 
             // grbDatos
             // 
+            this.grbDatos.Controls.Add(this.btnVolver);
             this.grbDatos.Controls.Add(this.plPanel);
             this.grbDatos.Controls.Add(this.btnRegistrar);
             this.grbDatos.Controls.Add(this.lblFirma);
@@ -91,7 +93,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnRegistrar.Location = new System.Drawing.Point(167, 305);
+            this.btnRegistrar.Location = new System.Drawing.Point(123, 305);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(103, 36);
             this.btnRegistrar.TabIndex = 1;
@@ -183,6 +185,17 @@
             this.panel1.Size = new System.Drawing.Size(297, 196);
             this.panel1.TabIndex = 4;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnVolver.Location = new System.Drawing.Point(241, 305);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(103, 36);
+            this.btnVolver.TabIndex = 7;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmRegistrarse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,5 +235,6 @@
         private System.Windows.Forms.PictureBox pbMostrarF;
         private System.Windows.Forms.GroupBox grbMostrar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

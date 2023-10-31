@@ -162,5 +162,12 @@ namespace pryMansillaIE
                 }
             }
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmInicioSesion InicioSForm = new frmInicioSesion();
+            InicioSForm.Show();
+            this.Hide();
+        }
     }
 }
