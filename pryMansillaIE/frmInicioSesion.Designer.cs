@@ -38,6 +38,7 @@
             this.temporizador1 = new System.Windows.Forms.Timer(this.components);
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lkRegistrate = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(103, 203);
+            this.btnIngresar.Location = new System.Drawing.Point(103, 228);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(219, 30);
             this.btnIngresar.TabIndex = 5;
@@ -112,13 +113,25 @@
             this.lblTitulo.TabIndex = 7;
             this.lblTitulo.Text = "Ingrese sus Datos";
             // 
+            // lkRegistrate
+            // 
+            this.lkRegistrate.AutoSize = true;
+            this.lkRegistrate.Location = new System.Drawing.Point(53, 200);
+            this.lkRegistrate.Name = "lkRegistrate";
+            this.lkRegistrate.Size = new System.Drawing.Size(149, 13);
+            this.lkRegistrate.TabIndex = 8;
+            this.lkRegistrate.TabStop = true;
+            this.lkRegistrate.Text = "¿No tenes cuenta? Registrate";
+            this.lkRegistrate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkRegistrate_LinkClicked);
+            // 
             // frmInicioSesion
             // 
             this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(436, 245);
+            this.ClientSize = new System.Drawing.Size(434, 270);
+            this.Controls.Add(this.lkRegistrate);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btnIngresar);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.Timer temporizador1;
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.LinkLabel lkRegistrate;
     }
 }

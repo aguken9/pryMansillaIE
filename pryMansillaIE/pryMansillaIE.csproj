@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsRegistro.cs" />
+    <Compile Include="clsRegistroUsuario.cs" />
     <Compile Include="clsTrv.cs" />
     <Compile Include="frmInicioSesion.cs">
       <SubType>Form</SubType>
@@ -72,6 +73,12 @@
     <Compile Include="frmProveedoresActivos.Designer.cs">
       <DependentUpon>frmProveedoresActivos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarse.Designer.cs">
+      <DependentUpon>frmRegistrarse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistroProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProveedoresActivos.resx">
       <DependentUpon>frmProveedoresActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarse.resx">
+      <DependentUpon>frmRegistrarse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroProveedores.resx">
       <DependentUpon>frmRegistroProveedores.cs</DependentUpon>

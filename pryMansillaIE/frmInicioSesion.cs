@@ -100,5 +100,12 @@ namespace pryMansillaIE
             btnIngresar.Enabled = true;
             temporizador1.Stop();
         }
+
+        private void lkRegistrate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRegistrarse frmRegistrarse = new frmRegistrarse();
+            frmRegistrarse.Show();
+            this.Hide();    
+        }
     }
 }
