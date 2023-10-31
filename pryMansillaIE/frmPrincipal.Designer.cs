@@ -45,6 +45,8 @@
             this.hora = new System.Windows.Forms.ToolStripStatusLabel();
             this.user = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +54,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inicioToolStripMenuItem,
             this.gestiónToolStripMenuItem,
             this.listadoReportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -125,19 +128,19 @@
             // espacio1
             // 
             this.espacio1.Name = "espacio1";
-            this.espacio1.Size = new System.Drawing.Size(117, 17);
+            this.espacio1.Size = new System.Drawing.Size(128, 17);
             this.espacio1.Spring = true;
             // 
             // espacio2
             // 
             this.espacio2.Name = "espacio2";
-            this.espacio2.Size = new System.Drawing.Size(117, 17);
+            this.espacio2.Size = new System.Drawing.Size(128, 17);
             this.espacio2.Spring = true;
             // 
             // espacio3
             // 
             this.espacio3.Name = "espacio3";
-            this.espacio3.Size = new System.Drawing.Size(117, 17);
+            this.espacio3.Size = new System.Drawing.Size(128, 17);
             this.espacio3.Spring = true;
             // 
             // fecha
@@ -164,6 +167,21 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // inicioToolStripMenuItem
+            // 
+            this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
+            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.inicioToolStripMenuItem.Text = "Inicio";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -206,6 +224,8 @@
         private System.Windows.Forms.ToolStripStatusLabel espacio2;
         private System.Windows.Forms.ToolStripStatusLabel espacio3;
         private System.Windows.Forms.ToolStripStatusLabel user;
+        private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
 

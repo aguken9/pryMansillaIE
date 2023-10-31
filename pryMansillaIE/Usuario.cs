@@ -21,11 +21,6 @@ namespace pryMansillaIE
 
 
         public string estadoConexion;
-
-        string sqlInsertarLog = "INSERT INTO logsR " +
-            "(Usuario, FechaHora, Categoria, Descripcion) " +
-            "VALUES ('prueba','10/10/2023','prueba','prueba')";
-
         public Usuario()
         {
             rutaArchivo = @"../../BD/Login.accdb";
@@ -49,33 +44,6 @@ namespace pryMansillaIE
                 estadoConexion = error.Message;
             }
         }
-
-        public void RegistrarLog(string usuario, DateTime fechahora, string categoria, string descripcion)
-        {
-            
-            //Realizar y Corregir lo de los parametros
-            try
-            {
-                comandoBD = new OleDbCommand();
-
-                comandoBD.Connection = conexionBD;
-
-                //registrar la acciòn
-                comandoBD.CommandType = System.Data.CommandType.Text;
-
-                comandoBD.CommandText = sqlInsertarLog;
-
-                comandoBD.ExecuteNonQuery();
-
-                estadoConexion = "Registro Exitoso";
-            }
-            catch (Exception error)
-            {
-                estadoConexion = error.Message;
-            }
-
-        }
-
         public bool ValidarUsuario(string usuario, string clave)
         {
             using (OleDbConnection conn = new OleDbConnection(cadenaConexion))

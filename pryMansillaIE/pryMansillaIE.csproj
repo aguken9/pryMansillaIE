@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsLogsR.cs" />
     <Compile Include="clsRegistro.cs" />
     <Compile Include="clsRegistroUsuario.cs" />
     <Compile Include="clsTrv.cs" />

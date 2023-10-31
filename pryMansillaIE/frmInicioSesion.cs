@@ -63,6 +63,11 @@ namespace pryMansillaIE
                 StreamWriter sw = new StreamWriter("logInicio", true);
                 sw.WriteLine(txtUsuario.Text + "- Fecha: " + DateTime.Now);
                 sw.Close();
+
+                // Escribe el log en la BD
+                clsLogsR LogsR = new clsLogsR();
+                LogsR.RegistrarLog(txtUsuario.Text, DateTime.Now, "Prueba", "Inicio Sesión");
+
                 Usuario usuario = new Usuario();
                 usuario.Nombre = txtUsuario.Text;
                 frmPrincipal principalForm = new frmPrincipal(usuario);

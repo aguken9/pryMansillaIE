@@ -24,6 +24,9 @@ namespace pryMansillaIE
 
         private void listadoDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsLogsR LogsR = new clsLogsR();
+            LogsR.RegistrarLog(user.Text, DateTime.Now, "Prueba", "Ingreso a Registro Proveedores");
+
             frmRegistroProveedores formulario = new frmRegistroProveedores();
             formulario.Show();
             StreamWriter sw = new StreamWriter("logGeneral", true);
@@ -59,6 +62,9 @@ namespace pryMansillaIE
 
         private void activosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsLogsR LogsR = new clsLogsR();
+            LogsR.RegistrarLog(user.Text, DateTime.Now, "Prueba", "Ingreso a Listado Proveedores Activos");
+
             // registro logs falta agregar el usuario
             frmProveedoresActivos formulario = new frmProveedoresActivos();
             formulario.Show();
@@ -75,6 +81,11 @@ namespace pryMansillaIE
         private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
